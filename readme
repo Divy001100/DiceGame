@@ -1,0 +1,43 @@
+Dice Game
+Overview
+This is a simple JavaScript-based dice game where two players roll a virtual die, and the player with the higher number wins. The game is designed to run in a web browser and updates the webpage dynamically with the results of each roll.
+
+Features
+Random Dice Roll: Each player rolls a die with numbers ranging from 1 to 6, generated using the Math.random() function.
+Dynamic Image Update: The corresponding dice images are dynamically updated on the webpage based on the result of the roll.
+Winner Announcement: The webpage displays the winner (Player 1 or Player 2) or declares a draw if both players roll the same number.
+Files :
+js was embedded within html using <style>, however it could be done using an external js sheet as well.
+
+Code Explanation
+Random Number Generation
+The random number for each player's dice roll is generated using the following code:
+
+javascript
+var randomNum = Math.floor(Math.random() * 6) + 1;
+Math.random() generates a random floating-point number between 0 (inclusive) and 1 (exclusive).
+Multiplying by 6 scales this number to a range between 0 and 5.999.
+Math.floor() rounds the result down to the nearest whole number, giving a range between 0 and 5.
+Adding 1 shifts the range to 1–6, simulating a dice roll.
+Image Update
+The dice image is updated dynamically using the setAttribute method:
+
+javascript
+document.querySelector("img.img1").setAttribute("src", randomsrc);
+randomsrc is the file path of the image corresponding to the rolled number.
+querySelector("img.img1") selects the image element with class img1.
+setAttribute("src", randomsrc) updates the src attribute of the image to display the correct dice face.
+Winner Declaration
+The winner is determined by comparing the two random numbers:
+
+javascript
+C
+if (randomNum > randomNum2) {
+  document.querySelector("h1").innerHTML = "Player 1 Wins!";
+} else if (randomNum < randomNum2) {
+  document.querySelector("h1").innerHTML = "Player 2 Wins!";
+} else {
+  document.querySelector("h1").innerHTML = "It's a Draw!";
+}
+Depending on which number is higher, the corresponding player is declared the winner.
+If both numbers are equal, the game is declared a draw.
